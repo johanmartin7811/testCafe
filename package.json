@@ -1,0 +1,26 @@
+{
+  "name": "testcafe-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome": "testcafe chrome tests/",
+    "test:edge": "testcafe edge tests/ --reporter json:report.json",
+    "test:all": "testcafe chrome,edge tests/ --reporter json:report.json",
+    "test:chromeLive": "testcafe chrome tests/ --live --reporter json:report.json",
+    "test:edgeLive": "testcafe edge tests/ --live --reporter json:report.json",
+    "report:pretty": "node scripts/pretty-report.js",
+    "getReportGood": "npm run report:pretty"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "testcafe": "^3.7.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "testcafe-reporter-json": "^2.2.0"
+  }
+}
