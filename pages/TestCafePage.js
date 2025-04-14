@@ -35,6 +35,15 @@ class HomePage {
             submit: Selector('[data-testid="submit-button"]'),
             populate: Selector('[data-testid="populate-button"]'),
         }
+
+        const dropdownSelector = Selector('[data-testid="preferred-interface-select"]');
+
+        this.drowdown = {
+            all: dropdownSelector,
+            commandline: dropdownSelector.find('option').withAttribute('value', 'Command Line'),
+            javascriptApiOption: dropdownSelector.find('option').withAttribute('value', 'JavaScript API'),
+            both: dropdownSelector.find('option').withAttribute('value', 'both'),
+        }
     };
 
     

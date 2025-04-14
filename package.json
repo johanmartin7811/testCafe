@@ -10,7 +10,7 @@
     "test:chromeLive": "testcafe chrome tests/ --live --reporter json:report.json",
     "test:edgeLive": "testcafe edge tests/ --live --reporter json:report.json",
     "report:pretty": "node scripts/pretty-report.js",
-    "getReportGood": "npm run report:pretty"
+    "getGoodReport": "npm run report:pretty"
   },
   "keywords": [],
   "author": "",
