@@ -9,13 +9,21 @@ const setupBeforeEach = async t => {
   await page.navigateTo();
 };
 
-fixture('Elements').beforeEach(setupBeforeEach);
+fixture('Comment area').beforeEach(setupBeforeEach);
 
 test('Should display disabled comment area', async t => {
   await t.expect(page.main.visible).ok();
   await t.expect(page.commentArea.visible && page.commentArea.getAttribute('disabled'))
     .ok('The comment area is visible and disabled');
 });
+
+test('Expect comment area is not visible', async t => {
+  await t.expect(page.main.visible).ok();
+  await helpers.hideElement('[data-testid="comments-area"]')
+  await t.expect(page.commentArea.visible).notOk();
+});
+
+
 
 fixture('Confirm dialog').beforeEach(setupBeforeEach);
 
