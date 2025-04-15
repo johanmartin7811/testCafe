@@ -208,7 +208,20 @@ test('Expect dropdown is not visible', async t => {
   await t.expect(page.main.visible).ok();
   await helpers.hideElement('[data-testid="preferred-interface-select"]');
   await helpers.assertAllHidden(page.drowdown.all, 'option');
-})
+});
+
+test('Shold select new value in dropdown', async t => {
+  const dropdown = page.drowdown.all;
+  const option = dropdown.find('option').withText('JavaScript API');
+
+  await t.expect(page.main.visible).ok();
+  await t.expect(dropdown.visible).ok();
+
+  await t.expect(dropdown.find('option:checked').value).eql('Command Line');
+
+  await t.click(dropdown).click(option)
+  .expect(dropdown.find('option:checked').value).eql('JavaScript API');
+});
 
 
 
