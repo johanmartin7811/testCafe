@@ -44,11 +44,7 @@ class HomePage {
             javascriptApiOption: dropdownSelector.find('option').withAttribute('value', 'JavaScript API'),
             both: dropdownSelector.find('option').withAttribute('value', 'both'),
         }
-    };
-
-    
-
-  
+    };  
 }
 
 export default new HomePage();

@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "testcafe chrome tests/",
-    "test:edge": "testcafe edge tests/ --reporter json:report.json",
-    "test:all": "testcafe chrome,edge tests/ --reporter json:report.json",
-    "test:chromeLive": "testcafe chrome tests/ --live --reporter json:report.json",
-    "test:edgeLive": "testcafe edge tests/ --live --reporter json:report.json",
+    "test:chrome": "testcafe chrome tests/ --reporter spec,json:report.json",
+    "test:edge": "testcafe edge tests/",
+    "test:all": "testcafe chrome,edge tests/",
+    "test:chromeLive": "testcafe chrome tests/ --live",
+    "test:edgeLive": "testcafe edge tests/ --live",
     "report:pretty": "node scripts/pretty-report.js",
     "getGoodReport": "npm run report:pretty"
   },
@@ -17,10 +17,10 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "testcafe": "^3.7.2"
+    "testcafe": "^3.7.2",
+    "testcafe-reporter-json": "^2.2.0"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "testcafe-reporter-json": "^2.2.0"
+    "dotenv": "^16.4.7"
   }
 }

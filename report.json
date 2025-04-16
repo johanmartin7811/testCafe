@@ -1,25 +1,35 @@
 {
-  "startTime": "2025-04-14T07:59:25.280Z",
-  "endTime": "2025-04-14T07:59:27.433Z",
+  "startTime": "2025-04-16T05:41:46.800Z",
+  "endTime": "2025-04-16T05:41:50.421Z",
   "userAgents": [
     "Chrome 135.0.0.0 / Windows 11"
   ],
-  "passed": 0,
-  "total": 1,
+  "passed": 2,
+  "total": 2,
   "skipped": 0,
   "fixtures": [
     {
-      "name": "Dropdown",
-      "path": "C:\\Users\\Johan\\Desktop\\testcafe-demo\\tests\\demo.js",
+      "name": "Comment area",
+      "path": "C:\\Users\\Johan\\Desktop\\testcafe-demo\\tests\\commentArea.js",
       "meta": {},
       "tests": [
         {
-          "name": "should expect three option in dropdown",
+          "name": "Should display disabled comment area",
+          "meta": {
+            "type": "critical",
+            "jira": "JIRA-123"
+          },
+          "errs": [],
+          "durationMs": 1695,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Expect comment area is not visible",
           "meta": {},
-          "errs": [
-            "AssertionError: expected 0 to deeply equal 3\n\n+ expected - actual\n\n-0\n+3\n\n\nBrowser: Chrome 135.0.0.0 / Windows 11\n\n   186 |  await t.expect(page.main.visible).ok();\n   187 |  await t.expect(page.drowdown.all.visible).ok();\n   188 |  await t.click(page.drowdown.all);\n   189 |\n   190 |  const checkedCount = await helpers.countChecked('option');\n > 191 |  await t.expect(checkedCount).eql(3);\n   192 |\n   193 |})\n   194 |\n   195 |\n   196 |\n\n   at <anonymous> (C:\\Users\\Johan\\Desktop\\testcafe-demo\\tests\\demo.js:191:32)\n   at asyncGeneratorStep (C:\\Users\\Johan\\Desktop\\testcafe-demo\\tests\\demo.js:4:41)\n   at _next (C:\\Users\\Johan\\Desktop\\testcafe-demo\\tests\\demo.js:4:41)"
-          ],
-          "durationMs": 1629,
+          "errs": [],
+          "durationMs": 1124,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
