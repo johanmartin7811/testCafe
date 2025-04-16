@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "testcafe chrome tests/ --reporter spec,json:report.json",
+    "test:chrome": "testcafe chrome tests/commentArea.js --reporter spec,json:report.json",
     "test:edge": "testcafe edge tests/",
     "test:all": "testcafe chrome,edge tests/",
     "test:chromeLive": "testcafe chrome tests/ --live",

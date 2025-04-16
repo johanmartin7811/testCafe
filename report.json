@@ -1,11 +1,11 @@
 {
-  "startTime": "2025-04-16T05:41:46.800Z",
-  "endTime": "2025-04-16T05:41:50.421Z",
+  "startTime": "2025-04-16T07:19:21.371Z",
+  "endTime": "2025-04-16T07:19:24.448Z",
   "userAgents": [
     "Chrome 135.0.0.0 / Windows 11"
   ],
-  "passed": 2,
-  "total": 2,
+  "passed": 1,
+  "total": 1,
   "skipped": 0,
   "fixtures": [
     {
@@ -14,22 +14,10 @@
       "meta": {},
       "tests": [
         {
-          "name": "Should display disabled comment area",
-          "meta": {
-            "type": "critical",
-            "jira": "JIRA-123"
-          },
-          "errs": [],
-          "durationMs": 1695,
-          "unstable": false,
-          "screenshotPath": null,
-          "skipped": false
-        },
-        {
-          "name": "Expect comment area is not visible",
+          "name": "Should activate comment area when I have tried TestCafe is checked",
           "meta": {},
           "errs": [],
-          "durationMs": 1124,
+          "durationMs": 2014,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false

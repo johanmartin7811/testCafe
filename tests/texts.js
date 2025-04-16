@@ -1,5 +1,5 @@
 import { ClientFunction } from 'testcafe';
-import page from '../pages/TestCafePage';
+import page from '../pages/mainPage';
 import * as settings from '../settings';
 require('dotenv').config();
 
