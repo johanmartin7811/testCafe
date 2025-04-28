@@ -11,12 +11,12 @@ const setupBeforeEach = async t => {
 
 fixture('Radio button').beforeEach(setupBeforeEach);
 
-test('Should expect 3 radio buttons are visible', async t => {
+test('Should expect 3 radio buttons to be visible', async t => {
   await t.expect(page.main.visible).ok();
   await helpers.assertElementsCount(radioButtons.all, 3, 'radio buttons');
 });
 
-test('Should expect all radio buttons are not checked', async t => {
+test('Should expect all radio buttons to be unchecked', async t => {
   await t.expect(page.main.visible).ok();
   await helpers.assertAllNotChecked(radioButtons.all, 'Radio button');
 });
