@@ -23,9 +23,8 @@ test('Should display confirmation dialog if name is pre-filled and Populate is c
     dialog.text === 'Reset information before proceeding?'
   );
 
-  await t.expect(confirmDialog).ok('confirm');
-  await t.expect(confirmDialog).ok('Expected confirm dialog to be visible');
-  await t.expect(confirmDialog.text).notEql('Confirm');
+  await t.expect(confirmDialog).ok('Expected confirmation dialog to be visible');
+  await t.expect(confirmDialog.text).eql('Reset information before proceeding?');
 });
 
 test('Expect no text is visible when deleting text', async t => {
@@ -35,7 +34,7 @@ test('Expect no text is visible when deleting text', async t => {
   await t.expect(page.nameInput.value).eql(settings.populatedName);
   await t.selectText(page.nameInput).pressKey('delete');
 
-  await t.expect(page.nameInput.innerText).eql('');    
+  await t.expect(page.nameInput.value).eql('');    
 });
 
 
