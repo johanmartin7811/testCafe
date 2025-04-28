@@ -34,7 +34,7 @@ test('Expect no text is visible when deleting text', async t => {
   await t.expect(page.nameInput.value).eql(settings.populatedName);
   await t.selectText(page.nameInput).pressKey('delete');
 
-  await t.expect(page.nameInput.innerText).eql('');    
+  await t.expect(page.nameInput.value).eql('');    
 });
 
 
