@@ -1,6 +1,6 @@
 import { ClientFunction } from 'testcafe';
 import page from '../pages/mainPage';
-import drowdown from '../pages/dropdown';
+import dropdown from '../pages/dropdown';
 import * as helpers from '../helpers';
 require('dotenv').config();
 
@@ -13,21 +13,21 @@ fixture('Dropdown').beforeEach(setupBeforeEach);
 
 test('Expect dropdown is visible', async t => {
   await t.expect(page.main.visible).ok();
-  await t.expect(drowdown.all.visible).ok();
+  await t.expect(dropdown.all.visible).ok();
 });
 
 
 test('should expect three options in the dropdown', async t => {
   await t.expect(page.main.visible).ok();
-  await t.expect(drowdown.all.visible).ok();
+  await t.expect(dropdown.all.visible).ok();
   await helpers.assertDropdownOptionCount('[data-testid="preferred-interface-select"]', 3, 'Preferred Interface Select');
 });
 
-test('Expect all options is visible', async t => {
+test('Expect all options are visible', async t => {
   const label = ['Command Line', 'JavaScript API', 'Both'];
   await t.expect(page.main.visible).ok();
-  await t.expect(drowdown.all.visible).ok();
-  await t.click(drowdown.all);
+  await t.expect(dropdown.all.visible).ok();
+  await t.click(dropdown.all);
 
   const getTexts = ClientFunction((tag) =>
     Array.from(document.querySelectorAll(tag), el => el.innerText.trim())
@@ -42,11 +42,11 @@ test('Expect all options is visible', async t => {
 test('Expect dropdown is not visible', async t => {
   await t.expect(page.main.visible).ok();
   await helpers.hideElement('[data-testid="preferred-interface-select"]');
-  await helpers.assertAllHidden(drowdown.all, 'option');
+  await helpers.assertAllHidden(dropdown.all, 'option');
 });
 
-test('Shold select new value in dropdown', async t => {
-  const dropdown = drowdown.all;
+test('Should select new value in dropdown', async t => {
+  const dropdown = dropdown.all;
   const JavaScript = dropdown.find('option').withText('JavaScript API');
   const both = dropdown.find('option').withText('Both');
 
@@ -64,17 +64,6 @@ test('Shold select new value in dropdown', async t => {
   .expect(dropdown.find('option:checked').value).eql('Both');
 });
 
-test('Shold select new value in dropdown', async t => {
-  const dropdown = drowdown.all;
-  const both = dropdown.find('option').withText('Both');
-
-  await t.expect(page.main.visible).ok();
-  await t.expect(dropdown.visible).ok();
-
-
-  await t.click(dropdown).click(both)
-  .expect(dropdown.find('option:checked').value).eql('Both');
-});
 
 
 
