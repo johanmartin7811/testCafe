@@ -46,22 +46,21 @@ test('Expect dropdown is not visible', async t => {
 });
 
 test('Should select new value in dropdown', async t => {
-  const dropdown = dropdown.all;
-  const JavaScript = dropdown.find('option').withText('JavaScript API');
-  const both = dropdown.find('option').withText('Both');
+  const dropDown = dropdown.all;
+  const JavaScript = dropDown.find('option').withText('JavaScript API');
+  const both = dropDown.find('option').withText('Both');
 
   await t.expect(page.main.visible).ok();
-  await t.expect(dropdown.visible).ok();
+  await t.expect(dropDown.visible).ok();
 
-  await t.expect(dropdown.find('option:checked').value).eql('Command Line');
+  await t.expect(dropDown.find('option:checked').value).eql('Command Line');
 
-  await t.click(dropdown).click(JavaScript)
-  .expect(dropdown.find('option:checked').value).eql('JavaScript API');
+  await t.click(dropDown).click(JavaScript)
+  .expect(dropDown.find('option:checked').value).eql('JavaScript API');
+  await t.expect(dropDown.find('option:checked').value).eql('JavaScript API');
 
-  await t.expect(dropdown.find('option:checked').value).eql('JavaScript API');
-
-  await t.click(dropdown).click(both)
-  .expect(dropdown.find('option:checked').value).eql('Both');
+  await t.click(dropDown).click(both)
+  .expect(dropDown.find('option:checked').value).eql('Both');
 });
 
 
