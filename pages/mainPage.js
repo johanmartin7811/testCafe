@@ -14,6 +14,7 @@ class HomePage {
         this.commentArea = Selector('[data-testid="comments-area"]'),
         this.legends = Selector('legend'), 
         this.labels = Selector('label'),
+        this.slider = Selector('#slider'),
 
 
         this.button = {
