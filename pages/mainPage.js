@@ -12,7 +12,7 @@ class HomePage {
         this.nameInput = Selector('[data-testid="name-input"]');
         this.thankYou = Selector('[data-testid="thank-you-header"]');
         this.commentArea = Selector('[data-testid="comments-area"]'),
-        this.legends = Selector('legend'), // Define legend selector
+        this.legends = Selector('legend'), 
         this.labels = Selector('label'),
 
 
