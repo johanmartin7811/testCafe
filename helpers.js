@@ -42,3 +42,9 @@ export async function assertDropdownOptionCount(dropdownSelector, expectedCount,
     // Assert that the number of options matches the expected count
     await t.expect(optionCount).eql(expectedCount, `Expected ${expectedCount} options in the dropdown ${label}, but found ${optionCount}`);
 }
+
+export const enterNameAndCheckSubmitButton = async (t, name, page) => {
+    await t.typeText(page.nameInput, name);
+    await t.expect(page.nameInput.value).eql(name);
+    await t.expect(page.button.submit.hasAttribute('disabled')).notOk();
+  };
