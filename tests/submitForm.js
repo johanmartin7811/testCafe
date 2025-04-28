@@ -1,6 +1,7 @@
 import page from '../pages/mainPage';
 import * as settings from '../settings';
 import * as helpers from '../helpers'
+import checkBoxes from '../pages/checkBoxes'
 require('dotenv').config();
 
 const setupBeforeEach = async t => {
@@ -43,5 +44,11 @@ test('Should expect thank you text after click on submit button', async t => {
     await t.expect(page.thankYou.innerText).eql(`Thank you, ${settings.name}!`);
   }
 });
+
+
+
+
+
+
 
 
