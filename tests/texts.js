@@ -11,7 +11,7 @@ const setupBeforeEach = async t => {
 
 fixture('Texts').beforeEach(setupBeforeEach);
 
-test('Should display all headers and label texts on page', async t => {
+test.only('Should display all headers and label texts on page', async t => {
   const expectedTexts = {
     legend: [
       "Your name:",
@@ -35,20 +35,31 @@ test('Should display all headers and label texts on page', async t => {
   };
 
   await t.expect(page.main.visible).ok();
+  await t.expect(page.legends.count).gt(0, 'No legend elements found on the page');  
+  await t.expect(page.labels.count).gt(0, 'No label elements found on the page');    
 
-  const getTexts = ClientFunction((tag) =>
-    Array.from(document.querySelectorAll(tag), el => el.innerText.trim())
-  );
+  const getTexts = ClientFunction((tag) => {
+    const elements = Array.from(document.querySelectorAll(tag), el => el.innerText.trim());
+    if (!elements.length) {
+      throw new Error(`No elements found for tag: ${tag}`); 
+    }
+    return elements;
+  });
 
-  const legendTexts = await getTexts('legend');
-  const labelTexts = await getTexts('label');
+  
+  const textSelectors = { 
+    'legend': expectedTexts.legend,
+    'label': expectedTexts.label,
+  };
 
-  for (const text of expectedTexts.legend)
-    await t.expect(legendTexts).contains(text, `Missing legend text: "${text}"`);
-
-  for (const text of expectedTexts.label)
-    await t.expect(labelTexts).contains(text, `Missing label text: "${text}"`);
+  for (const [tag, expectedTextsArray] of Object.entries(textSelectors)) {
+    const texts = await getTexts(tag);
+    for (const expectedText of expectedTextsArray) {
+      await t.expect(texts).contains(expectedText, `Missing ${tag} text: "${expectedText}"`);
+    }
+  }
 });
+
 
 test('Should populate name when click on populate button', async t => {
   await t.setNativeDialogHandler(() => true);
