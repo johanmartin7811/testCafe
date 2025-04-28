@@ -11,7 +11,7 @@ const setupBeforeEach = async t => {
 
 fixture('Texts').beforeEach(setupBeforeEach);
 
-test.only('Should display all headers and label texts on page', async t => {
+test('Should display all headers and label texts on page', async t => {
   const expectedTexts = {
     legend: [
       "Your name:",
